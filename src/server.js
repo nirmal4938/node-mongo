@@ -14,6 +14,7 @@ app.use("/api/users", userRoutes);
 // Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, async () => {
+  console.log("hostname", process.env.PORT);
   const databaseName = "learnDb";
   let db = await connectToMongoDB(databaseName);
   console.log("DB", db);

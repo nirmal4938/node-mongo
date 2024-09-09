@@ -6,7 +6,7 @@ dotenv.config();
 const uri = process.env.MONGODB_URI;
 let uri1 =
   "mongodb://127.0.0.1:27017/learnDb?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.6.0";
-const client = new MongoClient(uri, {
+const client = new MongoClient(uri1, {
   serverApi: {
     version: ServerApiVersion.v1,
     strict: true,
@@ -15,8 +15,8 @@ const client = new MongoClient(uri, {
 });
 async function connectToMongoDB(databaseName) {
   try {
-    console.log("Connecting to MongoDB...");
-    const uriWithDB = `${uri}${databaseName}`;
+    console.log("Connecting to MongoDB...", uri1);
+    const uriWithDB = `${uri1}`;
     const connection = await mongoose.connect(uriWithDB);
 
     // Connection event listeners
